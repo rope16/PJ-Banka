@@ -19,6 +19,7 @@ public class EmployeeForm extends javax.swing.JFrame {
     
     public EmployeeForm() {
         initComponents();
+        loadStaffToTable();
     }
     
     public EmployeeForm(int staffId){
@@ -305,7 +306,8 @@ public class EmployeeForm extends javax.swing.JFrame {
     }//GEN-LAST:event_zaposleni_TABLEMousePressed
 
     private void changePassword_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePassword_BTActionPerformed
-        // TODO add your handling code here:
+        new EmployeePasswordForm(staffId).setVisible(true);
+        dispose();
     }//GEN-LAST:event_changePassword_BTActionPerformed
 
     private void confirmPassword_FIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassword_FIActionPerformed

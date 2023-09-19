@@ -284,8 +284,8 @@ public class ClientForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void changePw_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePw_BTActionPerformed
-//        new GuestPasswordChange().setVisible(true);
-//        dispose();
+        new ClientPasswordForm(staff).setVisible(true);
+        dispose();
     }//GEN-LAST:event_changePw_BTActionPerformed
 
     private void guests_TABLEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guests_TABLEMousePressed
@@ -333,7 +333,7 @@ public class ClientForm extends javax.swing.JFrame {
            new AdminMenu(staff.getID()).setVisible(true);
            dispose(); 
         }else{
-            new EmployeeForm(staff.getID()).setVisible(true);
+            new EmployeeMenu(staff.getID()).setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
