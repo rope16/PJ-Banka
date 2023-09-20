@@ -316,7 +316,6 @@ public class ClientForm extends javax.swing.JFrame {
                     Guest guest = new Guest(ime, prezime, email, password, phone, balance);
 
                     dbFunctions.Connect();
-        System.out.println("Minecraft");
                     if (dbFunctions.addGuest(guest)) {
                         JOptionPane.showMessageDialog(this, "Gost uspjesno dodat.");
                         loadGuestToTable();
