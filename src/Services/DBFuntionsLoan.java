@@ -96,6 +96,30 @@ public class DBFuntionsLoan {
         return loan;
     }
     
+    public ArrayList<Loan> GetLoanForClient(int clientID){
+        ArrayList<Loan> loadList = new ArrayList();
+        try {
+            String query = "SELECT * FROM `loan` WHERE userId=" + clientID;
+            Statement stmt = (Statement) con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            if(rs.next()){
+                Loan loan = new Loan();
+                loan.setId(Integer.parseInt(rs.getString("ID")));
+                loan.setUserId(Integer.parseInt(rs.getString("userId")));
+                loan.setAmount(rs.getDouble("amount"));
+                loan.setInterest(rs.getDouble("interest"));
+                loan.setAmountToReturn(rs.getDouble("amountToReturn"));
+                loan.setMonthlyRate(rs.getDouble("monthlyRate"));
+                loan.setMonths(rs.getInt("months"));
+                loadList.add(loan);
+            }
+            return loadList;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBFunctionsStaff.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return loadList;
+    }
+    
     public boolean addLoan(Loan loan) {
         try {
             String query = "INSERT INTO loan (amount, interest, amountToReturn, monthlyRate, months, userId) VALUES (?, ?, ?, ?, ?, ?)";

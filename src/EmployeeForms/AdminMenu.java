@@ -27,7 +27,7 @@ public class AdminMenu extends javax.swing.JFrame {
         initComponents();
         dbFunc.Connect();
         Staff staff = dbFunc.GetStaffMember(staffId);
-        jLabel4.setText(staff.getFirstName() + " " + staff.getLastName());
+        jLabel4.setText(staff.getFirstName() + " " + staff.getLastName() + "(admin)");
     }
 
     /**
@@ -118,7 +118,7 @@ public class AdminMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)))
                 .addContainerGap(118, Short.MAX_VALUE))
         );

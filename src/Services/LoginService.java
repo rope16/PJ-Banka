@@ -4,6 +4,7 @@
  */
 package Services;
 
+import Models.Guest;
 import Models.Staff;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -63,5 +64,27 @@ public class LoginService {
             }
         }
         return staffId;
+    }
+    
+    public boolean provjeriClana(String email, String password, ArrayList<Guest> guestList){
+        String hashedPassword = hash256B64(password);
+        for(Guest guest : guestList){
+            if(guest.getEmail().equals(email) && guest.getPassword().equals(hashedPassword)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public int ulogovaniClan(String email, String password, ArrayList<Guest> guestList){
+        int memberId = 0;
+        String hashedPassword = hash256B64(password);
+        for(Guest guest : guestList){
+            if(guest.getEmail().equals(email) && guest.getPassword().equals(hashedPassword)){
+                memberId = guest.getID();
+                return memberId;
+            }
+        }
+        return memberId;
     }
 }
